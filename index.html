@@ -45,55 +45,15 @@
                 <div class="left-main">
                     <div>
                         <ul>
-                            <li class="chat-users active">
-                                <img src="img/avatar1.webp" alt="">
+                            <li class="chat-users" v-for="(contact, i) in contacts" :key="i">
+                                <img :src="contact.avatar" alt="">
                                 <div class="info">
-                                    <h4>Luca</h4>
+                                    <h4>{{contact.name}}</h4>
                                     <span>Ultimo messaggio inviato<span>
+                                    <span class="date">12:00</span>
                                 </div>
                             </li>
-                            <li class="chat-users">
-                                <img src="img/avatar1.webp" alt="">
-                                <div class="info">
-                                    <h4>Luca</h4>
-                                    <span>Ultimo messaggio inviato<span>
-                                </div>
-                            </li>
-                            <li class="chat-users">
-                                <img src="img/avatar1.webp" alt="">
-                                <div class="info">
-                                    <h4>Luca</h4>
-                                    <span>Ultimo messaggio inviato<span>
-                                </div>
-                            </li>
-                            <li class="chat-users">
-                                <img src="img/avatar1.webp" alt="">
-                                <div class="info">
-                                    <h4>Luca</h4>
-                                    <span>Ultimo messaggio inviato<span>
-                                </div>
-                            </li>
-                            <li class="chat-users">
-                                <img src="img/avatar1.webp" alt="">
-                                <div class="info">
-                                    <h4>Luca</h4>
-                                    <span>Ultimo messaggio inviato<span>
-                                </div>
-                            </li>
-                            <li class="chat-users">
-                                <img src="img/avatar1.webp" alt="">
-                                <div class="info">
-                                    <h4>Luca</h4>
-                                    <span>Ultimo messaggio inviato<span>
-                                </div>
-                            </li>
-                            <li class="chat-users">
-                                <img src="img/avatar1.webp" alt="">
-                                <div class="info">
-                                    <h4>Luca</h4>
-                                    <span>Ultimo messaggio inviato<span>
-                                </div>
-                            </li>    
+                            
                         </ul>    
                     </div>
                 </div>
@@ -113,25 +73,26 @@
                     </div>
                 </div>
                 <div class="right-main">
-                    <div class="column-received">
-                        <div class="message-received">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, repell.</p>
+                    <div class="row">
+                        <div class="message-received" 
+                        :class="{ 'justify-content': status === 'received' ? 'flex-start' : '' }">
                             <p>ciao</p>
+                            
                         </div>
-                    </div>
-                    <div class="column-sent">
-                        <div class="message-sent">
+                        <div class="message-sent" >
                             <p>ciao</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui porro mollitia quis illum natus reiciendis nostrum facere voluptas nam minus maxime ipsum harum repellendus, minima ea, exercitationem, id quisquam! Expedita.</p>
+                            
                         </div>
                     </div>
                 </div>
+
+                <!-- bottom right part -->
                 <div class="right-bottom">
                     <div class="emoji">
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
                     <div class="text">
-                        <input type="text" placeholder="Scrivi messaggio">
+                        <input v-model="message" @keyup.enter="addText" type="text" placeholder="Scrivi messaggio">
                     </div>
                     <div class="microphone">
                         <i class="fa-solid fa-microphone"></i>
