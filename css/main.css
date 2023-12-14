@@ -15,6 +15,7 @@ body{
     display: flex;
 }
 
+
 /* left side */
 .left-part {
     border-right: 1px solid #dfdfdf;
@@ -26,6 +27,24 @@ body{
     /* border: 1px solid black; */
     height: 9vh;
     background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.avatar{
+    display: flex;
+    align-items: center;
+}
+
+.avatar img{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.icons{
+    
 }
 
 .notification {
@@ -35,12 +54,24 @@ body{
 
 .search-bar {
     height: 5vh;
-    padding: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.icon-input{
+    width: 10%;
+    border: 1px solid #f6f6f6;
+    padding: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-bar input {
-    width: 100%;
-    padding: 5px;
+    width: 90%;
+    padding: 9px;
+    border: 1px solid #f6f6f6;
 }
 
 .left-main {
@@ -57,35 +88,56 @@ body{
 .right-top {
     height: 9vh;
     background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
 .right-main {
-    height: calc(100% - 19vh);
+    height: calc(100% - 18vh);
 }
 
 .right-bottom {
     background-color: #f3eeea;
-    height: 10vh;
+    height: 9vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.fa-face-smile {
-    font-size: 25px;
-}
 
 .text {
-    width: 80%;
+    width: 85%;
 }
 
 .text input {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     border-radius: 5px;
     border: none;
 }
 
+
+/* icons color & margin */
+.fa-solid,
+.fa-regular{
+    color: #b1b1b1;
+}
+
+.fa-circle-notch,
+.fa-message,
+.fa-ellipsis-vertical,
+.fa-magnifying-glass,
+.fa-paperclip{
+    margin-right: 15px;
+}
+
+/* bottom icons*/
 .fa-microphone {
-    font-size: 25px;
+    font-size: 20px;
+}
+
+.fa-face-smile {
+    font-size: 20px;
 }
