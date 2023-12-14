@@ -63,7 +63,7 @@
                 <div class="right-top">
                     <div class="avatar">
                         <img src="img/avatar1.webp" alt="">
-                        <h3>Luca</h3>
+                        <h3>{{}}</h3>
                     </div>
                     <div class="icons">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -76,13 +76,15 @@
                 <!-- main right part -->
                 <div class="right-main">
                     <div class="row">
-                        <div class="message-container" v-for="(message, i) in contacts[0].messages" :key="i" :class="{'message-sent': message.status === 'sent', 'message-received': message.status === 'received'}">
+                        <div class="message-container" v-for="(message, i) in currentMessages" :key="i"
+                            :class="{'message-sent': message.status === 'sent', 'message-received': message.status === 'received'}">
                             <p :class="{'bg-sent': message.status === 'sent', 'bg-received': message.status === 'received'}">
                                 {{message.message}}
                             </p>
                         </div>
                     </div>
                 </div>
+                
                 
 
                 <!-- bottom right part -->

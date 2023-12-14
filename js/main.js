@@ -3,8 +3,8 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-        text: "ciao",
-        newText: [],
+        text: "",
+        currentMessages: [],
         currentIndex: 0,
         contacts: [
         {
@@ -174,7 +174,8 @@ createApp({
   methods: {
     showUser(index){
         this.currentIndex = index;
-        
+        this.currentMessages = this.contacts[index].messages;
+
       },     
     addText() {
      
