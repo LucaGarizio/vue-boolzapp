@@ -22,7 +22,6 @@ body {
 }
 
 .left-top {
-    /* border: 1px solid black; */
     height: 9vh;
     background-color: #eaeaea;
     display: flex;
@@ -88,6 +87,10 @@ body {
     overflow-y: scroll;
 }
 
+.left-main li:hover{
+    cursor: pointer;
+}
+
 .chat-users img {
     width: 50px;
     margin-right: 10px;
@@ -133,41 +136,50 @@ body {
 .right-main {
     height: calc(100% - 18vh);
     display: flex;
-    background-image: url('../img/whatsapp-bg.jpg');
+    background-image: url('../img/wallpaper.jpg');
+    background-size: cover;
 }
 
 .row{
     width: 100%;
+    overflow-y: auto;
+    
+}
+
+.message-container {
+    width: 100%;
+    padding: 0 100px;
     display: flex;
+    
 }
 
-.row .message-received{
+.message-sent{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.message-received{
+    display: flex;
     justify-content: flex-start;
+    
 }
 
-.row .message-sent{
-    justify-content: flex-end
-}
-
-.message-received,
-.message-sent {
-    width: 30%;
-    margin: 0 auto;
-}
-
-.right-main p {
-    padding: 15px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    margin: 3% 0;
-}
-
-.message-received p {
+.bg-received{
     background-color: #fff;
 }
 
-.message-sent p {
+
+.bg-sent{
     background-color: #d5f9ba;
+}
+
+.right-main p {
+    width: 30%;
+    padding: 15px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 2% 0 1%;
 }
 
 /* right bottom */

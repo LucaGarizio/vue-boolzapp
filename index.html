@@ -45,15 +45,14 @@
                 <div class="left-main">
                     <div>
                         <ul>
-                            <li class="chat-users" v-for="(contact, i) in contacts" :key="i">
+                            <li v-for="(contact, index) in contacts" :key="index" @click="showUser(index)" :class="{ 'active': index === currentIndex }" class="chat-users">
                                 <img :src="contact.avatar" alt="">
                                 <div class="info">
-                                    <h4>{{contact.name}}</h4>
-                                    <span>Ultimo messaggio inviato<span>
-                                    <span class="date">12:00</span>
+                                  <h4>{{contact.name}}</h4>
+                                  <span>Ultimo messaggio inviato</span>
+                                  <span class="date">12:00</span>
                                 </div>
-                            </li>
-                            
+                              </li>
                         </ul>    
                     </div>
                 </div>
@@ -72,19 +71,19 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+
+
+                <!-- main right part -->
                 <div class="right-main">
                     <div class="row">
-                        <div class="message-received" 
-                        :class="{ 'justify-content': status === 'received' ? 'flex-start' : '' }">
-                            <p>ciao</p>
-                            
-                        </div>
-                        <div class="message-sent" >
-                            <p>ciao</p>
-                            
+                        <div class="message-container" v-for="(message, i) in contacts[0].messages" :key="i" :class="{'message-sent': message.status === 'sent', 'message-received': message.status === 'received'}">
+                            <p :class="{'bg-sent': message.status === 'sent', 'bg-received': message.status === 'received'}">
+                                {{message.message}}
+                            </p>
                         </div>
                     </div>
                 </div>
+                
 
                 <!-- bottom right part -->
                 <div class="right-bottom">
