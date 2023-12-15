@@ -4,7 +4,8 @@ createApp({
   data() {
     return {
         newText: "",
-        currentIndex: null,
+        // searchName: '',
+        // currentIndex: null,
         currentMessages: [],
         currentUserInfo: ({ 
             date: '',

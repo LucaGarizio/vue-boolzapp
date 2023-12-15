@@ -40,7 +40,7 @@
                     <div class="icon-input">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="searchName" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div class="column-users">
                     <div>
@@ -74,7 +74,7 @@
 
 
                 <div class="chat-messages">
-                    <div class="row"v-for="(message, i) in currentMessages" :key="i">
+                    <div class="row" v-for="(message, i) in currentMessages" :key="i">
                         <div class="message-container" 
                             :class="{'message-sent': message.status === 'sent', 'message-received': message.status === 'received'}">
                             <p :class="{'bg-sent': message.status === 'sent', 'bg-received': message.status === 'received'}">

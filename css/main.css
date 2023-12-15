@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    scroll-behavior: smooth;
-}
-
 .main-container {
     height: 100vh;
     width: 100%;
@@ -76,6 +72,10 @@ body {
     justify-content: center;
 }
 
+.icon-input .fa-magnifying-glass{
+    justify-content: center;
+}
+
 .search-bar input {
     width: 90%;
     padding: 9px;
@@ -137,25 +137,22 @@ body {
     height: calc(100% - 18vh);
     background-image: url('../img/wallpaper.jpg');
     background-size: cover;
+    overflow-y: auto;
 }
 
 .row{
     width: 100%;
-    overflow-y: auto;
-    
 }
 
 .message-container {
     width: 100%;
     padding: 0 100px;
     display: flex;
-    
 }
 
 .message-sent{
     display: flex;
     justify-content: flex-end;
-    
 }
 
 .message-received{
@@ -167,7 +164,6 @@ body {
 .bg-received{
     background-color: #fff;
 }
-
 
 .bg-sent{
     background-color: #d5f9ba;
@@ -214,6 +210,10 @@ body {
 .fa-message,
 .fa-paperclip {
     margin-right: 18px;
+}
+
+.search-bar .fa-magnifying-glass{
+    margin-left: 20px;
 }
 
 /* left icons */
