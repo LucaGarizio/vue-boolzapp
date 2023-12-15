@@ -3,9 +3,8 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-        text: "",
-        currentMessages: [],
-        currentIndex: 0,
+        newText: "",
+        currentIndex: null,
         contacts: [
         {
             name: 'Michele',
@@ -175,10 +174,20 @@ createApp({
     showUser(index){
         this.currentIndex = index;
         this.currentMessages = this.contacts[index].messages;
-
+        this.currentUserInfo = {
+        avatar: this.contacts[index].avatar,
+        name: this.contacts[index].name,
+        // Aggiungi altre informazioni utente se necessario
+          };
       },     
     addText() {
-     
+        if(this.newText !== "") {
+            this.contacts[this.currentIndex].messages.push({
+                message: this.newText,
+                status: 'sent'
+            }); 
+        }
+        this.newText = "";
     },
   },
   

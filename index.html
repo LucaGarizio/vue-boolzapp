@@ -48,11 +48,11 @@
                             <li v-for="(contact, index) in contacts" :key="index" @click="showUser(index)" :class="{ 'active': index === currentIndex }" class="chat-users">
                                 <img :src="contact.avatar" alt="">
                                 <div class="info">
-                                  <h4>{{contact.name}}</h4>
-                                  <span>Ultimo messaggio inviato</span>
-                                  <span class="date">12:00</span>
+                                    <h4>{{contact.name}}</h4>
+                                    <span>Ultimo messaggio inviato</span>
+                                    <span class="date">12:00</span>
                                 </div>
-                              </li>
+                            </li>
                         </ul>    
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                 <div class="right-top">
                     <div class="avatar">
                         <img src="img/avatar1.webp" alt="">
-                        <h3>{{}}</h3>
+                        <h3>blbla</h3>
                     </div>
                     <div class="icons">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -80,7 +80,7 @@
                             :class="{'message-sent': message.status === 'sent', 'message-received': message.status === 'received'}">
                             <p :class="{'bg-sent': message.status === 'sent', 'bg-received': message.status === 'received'}">
                                 {{message.message}}
-                            </p>
+                            </p>  
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
                     <div class="text">
-                        <input v-model="message" @keyup.enter="addText" type="text" placeholder="Scrivi messaggio">
+                        <input v-model="newText" @keyup.enter="addText" type="text" placeholder="Scrivi messaggio">
                     </div>
                     <div class="microphone">
                         <i class="fa-solid fa-microphone"></i>
