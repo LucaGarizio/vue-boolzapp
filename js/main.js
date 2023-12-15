@@ -188,7 +188,15 @@ createApp({
             }); 
         }
         this.newText = "";
+
+        setTimeout (() => {
+            this.contacts[this.currentIndex].messages.push({
+                message: "ciao",
+                status: 'received'
+            }); 
+        },1000);
     },
+
   },
   
 }).mount('#app')
