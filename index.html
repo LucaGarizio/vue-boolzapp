@@ -45,7 +45,8 @@
                 <div class="column-users">
                     <div>
                         <ul>
-                            <li v-for="(contact, index) in contacts" :key="index" @click="showUser(index)" :class="{ 'active': index === currentIndex }" class="chat-users">
+                            <li v-for="(contact, index) in filteredContacts" :key="index"
+                            @click="showUser(index)" :class="{ 'active': index === currentIndex }" class="chat-users">
                                 <img :src="contact.avatar" alt="">
                                 <div class="info">
                                     <h4>{{contact.name}}</h4>

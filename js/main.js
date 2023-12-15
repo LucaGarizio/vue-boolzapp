@@ -4,8 +4,8 @@ createApp({
   data() {
     return {
         newText: "",
-        // searchName: '',
-        // currentIndex: null,
+        searchName: '',
+        currentIndex: null,
         currentMessages: [],
         currentUserInfo: ({ 
             date: '',
@@ -209,7 +209,11 @@ createApp({
             }); 
         },1000);
     },
-
+    
   },
-  
+  computed:{
+    filteredContacts(){
+        return this.contacts.filter(contact => contact.name.includes(this.searchName)); 
+    },
+  }
 }).mount('#app')
