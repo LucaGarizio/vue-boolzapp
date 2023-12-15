@@ -15,13 +15,13 @@ body {
 }
 
 /* left side */
-.left-part {
+#chat-info {
     border-right: 1px solid #dfdfdf;
     width: 30%;
     height: 100%;
 }
 
-.left-top {
+.my-profile-information {
     height: 9vh;
     background-color: #eaeaea;
     display: flex;
@@ -82,12 +82,12 @@ body {
     border: 1px solid #f6f6f6;
 }
 
-.left-main {
+.column-user {
     height: calc(100% - 26vh);
     overflow-y: scroll;
 }
 
-.left-main li:hover{
+.column-user li:hover{
     cursor: pointer;
 }
 
@@ -118,12 +118,12 @@ body {
 }
 
 /* right-part */
-.right-part {
+#chat-display {
     width: 70%;
     height: 100%;
 }
 
-.right-top {
+.user-information {
     height: 9vh;
     background-color: #eaeaea;
     display: flex;
@@ -133,9 +133,8 @@ body {
 }
 
 /* right main */
-.right-main {
+.chat-messages{
     height: calc(100% - 18vh);
-    display: flex;
     background-image: url('../img/wallpaper.jpg');
     background-size: cover;
 }
@@ -174,7 +173,7 @@ body {
     background-color: #d5f9ba;
 }
 
-.right-main p {
+.chat-messages p {
     width: 30%;
     padding: 15px;
     border: 1px solid lightgray;
@@ -183,7 +182,7 @@ body {
 }
 
 /* right bottom */
-.right-bottom {
+.chat-input{
     background-color: #f3eeea;
     height: 9vh;
     display: flex;

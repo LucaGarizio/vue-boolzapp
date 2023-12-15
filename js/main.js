@@ -7,6 +7,7 @@ createApp({
         currentIndex: null,
         currentMessages: [],
         currentUserInfo: ({ 
+            date: '',
             name: '',
             avatar: ''
         }),
@@ -183,8 +184,9 @@ createApp({
         this.currentMessages = this.contacts[index].messages;
          // Imposta le informazioni dell'utente sul nome e avatar del contatto selezionato
         this.currentUserInfo = {
-        name: this.contacts[index].name,
-        avatar: this.contacts[index].avatar,
+            date: this.contacts[index].date,
+            name: this.contacts[index].name,
+            avatar: this.contacts[index].avatar
         };
       },     
     addText() {
