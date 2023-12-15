@@ -5,6 +5,11 @@ createApp({
     return {
         newText: "",
         currentIndex: null,
+        currentMessages: [],
+        currentUserInfo: ({ 
+            name: '',
+            avatar: ''
+        }),
         contacts: [
         {
             name: 'Michele',
@@ -172,16 +177,20 @@ createApp({
   },
   methods: {
     showUser(index){
+        // Imposta l'indice sull'indice del contatto selezionato
         this.currentIndex = index;
+        // Imposta i messaggi sull'array di messaggi del contatto selezionato
         this.currentMessages = this.contacts[index].messages;
+         // Imposta le informazioni dell'utente sul nome e avatar del contatto selezionato
         this.currentUserInfo = {
-        avatar: this.contacts[index].avatar,
         name: this.contacts[index].name,
-        // Aggiungi altre informazioni utente se necessario
-          };
+        avatar: this.contacts[index].avatar,
+        };
       },     
     addText() {
+        // check se il campo text non è vuoto
         if(this.newText !== "") {
+            // pusha il nuovo messaggio con valore (sent) dentro l'array di oggetti(messages) gia esistente
             this.contacts[this.currentIndex].messages.push({
                 message: this.newText,
                 status: 'sent'
@@ -190,6 +199,7 @@ createApp({
         this.newText = "";
 
         setTimeout (() => {
+            // pusha nell'array(messages) gia esistente  una risposta automatica dopo un secondo con valore (received)
             this.contacts[this.currentIndex].messages.push({
                 message: "ciao",
                 status: 'received'
