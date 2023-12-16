@@ -64,7 +64,11 @@
                 <div class="user-information">
                     <div class="avatar">
                         <img :src="currentUserInfo.avatar" alt="">
-                        <h3>{{currentUserInfo.name}}</h3>
+                        <div><h3>{{currentUserInfo.name}}</h3>
+                            <span>Ultimo messaggio inviato </span>
+                            <span>{{currentUserInfo.date}}</span>
+                        </div>
+                        
                     </div>
                     <div class="icons">
                         <i class="fa-solid fa-magnifying-glass"></i>

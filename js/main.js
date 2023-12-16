@@ -5,6 +5,7 @@ createApp({
     return {
         newText: "",
         searchName: '',
+        lastMessage: '',
         currentIndex: null,
         currentMessages: [],
         currentUserInfo: ({ 
@@ -182,17 +183,18 @@ createApp({
         // Imposta l'indice sull'indice del contatto selezionato
         this.currentIndex = index;
         // Imposta i messaggi sull'array di messaggi del contatto selezionato
-        this.currentMessages = this.contacts[index].messages;
+        this.currentMessages = this.contacts[index].messages,
+        this.lastMessage = this.currentMessages[this.currentMessages.length - 1],
          // Imposta le informazioni dell'utente sul nome e avatar del contatto selezionato
         this.currentUserInfo = {
-            date: this.contacts[index].date,
+            date: this.lastMessage.date,
             name: this.contacts[index].name,
             avatar: this.contacts[index].avatar
         };
       },     
     addText() {
         // check se il campo text non è vuoto
-        if(this.newText !== "") {
+        if(this.newText.trim() !== "") {
             // pusha il nuovo messaggio con valore (sent) dentro l'array di oggetti(messages) gia esistente
             this.contacts[this.currentIndex].messages.push({
                 message: this.newText,
