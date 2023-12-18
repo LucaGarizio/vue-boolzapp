@@ -176,7 +176,8 @@ createApp({
                     status: 'received'
                 }
             ],
-        }
+        },
+        
     ]
     }
   },
@@ -186,37 +187,49 @@ createApp({
         this.currentIndex = index;
         // Imposta i messaggi sull'array di messaggi del contatto selezionato
         this.currentMessages = this.contacts[index].messages,
+        // prendere la data dall'ultimo messaggio del contatto
         this.lastMessage = this.currentMessages[this.currentMessages.length - 1].date;
-         // Imposta le informazioni dell'utente sul nome e avatar del contatto selezionato
+         // Imposta le informazioni dell'utente selezionato
         this.currentUserInfo = {
             date: this.lastMessage.date,
             name: this.contacts[index].name,
             avatar: this.contacts[index].avatar,
-            lastAccess: this.currentMessages[this.currentMessages.length - 1].date
+            lastAccess: this.lastMessage
         };
         this.lastAccess = "Ultimo Accesso"
       },     
-    addText() {
+      addText() {
         // check se il campo text non è vuoto
-        if(this.newText.trim() !== "") {
-            // pusha il nuovo messaggio con valore (sent) dentro l'array di oggetti(messages) gia esistente
-            this.contacts[this.currentIndex].messages.push({
-                message: this.newText,
-                status: 'sent'
-            }); 
+        if (this.newText.trim() !== "") {
+        // Ottieni la data e l'ora correnti attraverso la libreria moment
+        const now = moment();
+        // pusha il nuovo messaggio con valore (sent) dentro l'array di oggetti(messages) gia esistente
+        this.contacts[this.currentIndex].messages.push({
+            message: this.newText,
+            status: 'sent',
+            date: now.format("DD/MM/YYYY HH:mm:ss")
+            });
+            // Aggiorna l'ultimo accesso del contatto corrente con la data e l'ora correnti
+            this.contacts[this.currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
+    
+        setTimeout(() => {
+            const currentIndex = this.currentIndex;
+            // pusha nell'array(messages) gia esistente  una risposta automatica dopo un secondo con valore (received)
+            this.contacts[currentIndex].messages.push({
+                message: "ciao",
+                status: 'received',
+                date: now.format("DD/MM/YYYY HH:mm:ss")
+            });
+            // Aggiorna l'ultimo accesso del contatto corrente con la data e l'ora correnti
+            this.contacts[currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
+            }, 1000);
         }
         this.newText = "";
-
-        setTimeout (() => {
-            // pusha nell'array(messages) gia esistente  una risposta automatica dopo un secondo con valore (received)
-            this.contacts[this.currentIndex].messages.push({
-                message: "ciao",
-                status: 'received'
-            }); 
-        },1000);
-    }, 
+    },
+    
   },
   computed:{
+    // filtra i contatti in base a quello che viene digitato nella stringa search name
     filteredContacts(){
         return this.contacts.filter(contact => contact.name.includes(this.searchName)); 
     },
