@@ -227,7 +227,6 @@ createApp({
         // svuota il valore dell'input 
         this.newText = "";
     },
-    
   },
   computed:{
     // filtra i contatti in base a quello che viene digitato nella stringa search name
