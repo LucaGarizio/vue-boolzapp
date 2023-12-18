@@ -4,10 +4,11 @@ createApp({
   data() {
     return {
         newText: "",
-        automaticAnswer: '',
+        randomAnswer: '',
         lastAccess: '',
         searchName: '',
         lastMessage: '',
+        currentHour: moment(),
         currentIndex: null,
         currentMessages: [],
         currentUserInfo: ({ 
@@ -197,44 +198,43 @@ createApp({
             lastAccess: this.lastMessage
         };
         this.lastAccess = "Ultimo Accesso"
-      },     
+      },    
       addText() {
         // check se il campo text non è vuoto e blocca l'invio se la stringa è composta solo da spazi
         if (this.newText.trim() !== "") {
-        // Ottieni la data e l'ora correnti attraverso la libreria moment
-        const now = moment();
         // pusha il nuovo messaggio con valore (sent) dentro l'array di oggetti(messages) gia esistente
         this.contacts[this.currentIndex].messages.push({
             message: this.newText,
             status: 'sent',
-            date: now.format("DD/MM/YYYY HH:mm:ss")
+            date: this.currentHour.format("DD/MM/YYYY HH:mm:ss")
             });
             // Aggiorna l'ultimo accesso del contatto corrente con la data e l'ora correnti
-            this.contacts[this.currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
+            this.contacts[this.currentIndex].lastAccess = this.currentHour.format("DD/MM/YYYY HH:mm:ss");
     
         setTimeout(() => {
+        // ottenere l'indice del contatto corrente
         const currentIndex = this.currentIndex;
             
         // Chiamata API per ottenere una frase casuale
         axios.get('https://flynn.boolean.careers/exercises/api/random/sentence')
             .then((response) => {
                 // Estrai il valore della frase casuale
-                this.automaticAnswer = response.data.response;
+                this.randomAnswer = response.data.response;
             
                 // Aggiungi la risposta automatica all'array dei messaggi
                 this.contacts[currentIndex].messages.push({
-                message: this.automaticAnswer,
+                message: this.randomAnswer,
                 status: 'received',
-                date: now.format("DD/MM/YYYY HH:mm:ss")
+                date: this.currentHour.format("DD/MM/YYYY HH:mm:ss")
                 });
                 // Aggiorna l'ultimo accesso del contatto corrente con la data e l'ora correnti
-                this.contacts[currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
+                this.contacts[currentIndex].lastAccess = this.currentHour.format("DD/MM/YYYY HH:mm:ss");
             
                 // Aggiorna anche lastAccess in currentUserInfo
                 this.currentUserInfo.lastAccess = this.contacts[currentIndex].lastAccess;
                 })
             }, 1000);
-        }
+        };
         // svuota il valore dell'input 
         this.newText = "";
     },
