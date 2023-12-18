@@ -44,19 +44,17 @@
                     <input v-model="searchName" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div class="column-users">
-                    <div>
-                        <ul>
-                            <li v-for="(contact, index) in filteredContacts" :key="index"
+                    <ul>
+                        <li v-for="(contact, index) in filteredContacts" :key="index"
                             @click="showUser(index)" :class="{ 'active': index === currentIndex }" class="chat-users">
-                                <img :src="contact.avatar" alt="">
-                                <div class="info">
-                                    <h4>{{contact.name}}</h4>
-                                    <span>Ultimo messaggio inviato</span>
-                                    <span class="date">{{contact.messages[contact.messages.length - 1].date}}</span>
-                                </div>
-                            </li>
-                        </ul>    
-                    </div>
+                            <img :src="contact.avatar" alt="">
+                            <div class="info">
+                                <h4>{{contact.name}}</h4>
+                                <span>Ultimo messaggio inviato</span>
+                                <span class="date">{{contact.messages[contact.messages.length - 1].date}}</span>
+                            </div>
+                        </li>
+                    </ul>    
                 </div>
             </div>
 
