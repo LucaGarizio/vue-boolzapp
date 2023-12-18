@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
         newText: "",
+        automaticAnswer: '',
         lastAccess: '',
         searchName: '',
         lastMessage: '',
@@ -212,19 +213,26 @@ createApp({
             this.contacts[this.currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
     
         setTimeout(() => {
-            const currentIndex = this.currentIndex;
-            // pusha nell'array(messages) gia esistente una risposta automatica dopo un secondo con valore (received)
-            this.contacts[currentIndex].messages.push({
-                message: "ciao",
+        const currentIndex = this.currentIndex;
+            
+        // Chiamata API per ottenere una frase casuale
+        axios.get('https://flynn.boolean.careers/exercises/api/random/sentence')
+            .then((response) => {
+                // Estrai il valore della frase casuale
+                this.automaticAnswer = response.data.response;
+            
+                // Aggiungi la risposta automatica all'array dei messaggi
+                this.contacts[currentIndex].messages.push({
+                message: this.automaticAnswer,
                 status: 'received',
                 date: now.format("DD/MM/YYYY HH:mm:ss")
-            });
-            // Aggiorna l'ultimo accesso del contatto corrente con la data e l'ora correnti
-            this.contacts[currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
-
-            // Aggiorna anche lastAccess in currentUserInfo
-            this.currentUserInfo.lastAccess = this.contacts[currentIndex].lastAccess;
-
+                });
+                // Aggiorna l'ultimo accesso del contatto corrente con la data e l'ora correnti
+                this.contacts[currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
+            
+                // Aggiorna anche lastAccess in currentUserInfo
+                this.currentUserInfo.lastAccess = this.contacts[currentIndex].lastAccess;
+                })
             }, 1000);
         }
         // svuota il valore dell'input 
