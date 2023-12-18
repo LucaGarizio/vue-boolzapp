@@ -221,6 +221,10 @@ createApp({
             });
             // Aggiorna l'ultimo accesso del contatto corrente con la data e l'ora correnti
             this.contacts[currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
+
+            // Aggiorna anche lastAccess in currentUserInfo
+            this.currentUserInfo.lastAccess = this.contacts[currentIndex].lastAccess;
+
             }, 1000);
         }
         // svuota il valore dell'input 
