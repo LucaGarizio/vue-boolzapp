@@ -6,7 +6,6 @@ createApp({
         newText: "",
         lastAccess: '',
         searchName: '',
-        currentDate: '',
         lastMessage: '',
         currentIndex: null,
         currentMessages: [],
@@ -199,7 +198,7 @@ createApp({
         this.lastAccess = "Ultimo Accesso"
       },     
       addText() {
-        // check se il campo text non è vuoto
+        // check se il campo text non è vuoto e blocca l'invio se la stringa è composta solo da spazi
         if (this.newText.trim() !== "") {
         // Ottieni la data e l'ora correnti attraverso la libreria moment
         const now = moment();
@@ -214,7 +213,7 @@ createApp({
     
         setTimeout(() => {
             const currentIndex = this.currentIndex;
-            // pusha nell'array(messages) gia esistente  una risposta automatica dopo un secondo con valore (received)
+            // pusha nell'array(messages) gia esistente una risposta automatica dopo un secondo con valore (received)
             this.contacts[currentIndex].messages.push({
                 message: "ciao",
                 status: 'received',
@@ -230,8 +229,9 @@ createApp({
   },
   computed:{
     // filtra i contatti in base a quello che viene digitato nella stringa search name
-    filteredContacts(){
-        return this.contacts.filter(contact => contact.name.includes(this.searchName)); 
+    filteredContacts() {
+        return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchName.toLowerCase()));
     },
+    
   }
 }).mount('#app')
