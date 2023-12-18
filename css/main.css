@@ -147,12 +147,15 @@
 .message-container {
     width: 100%;
     padding: 0 100px;
-    display: flex;
+    display: flex; 
+    
+    
 }
 
 .message-sent{
     display: flex;
     justify-content: flex-end;
+    
 }
 
 .message-received{
@@ -168,12 +171,29 @@
     background-color: #d5f9ba;
 }
 
+.text-align {
+    text-align: end;
+}
+
 .chat-messages p {
-    width: 30%;
+    max-width: 50%;
+    min-width: 35%;
     padding: 15px;
     border: 1px solid lightgray;
     border-radius: 10px;
     margin: 2% 0 1%;
+    position: relative;
+}
+
+.chat-messages span{
+    position:absolute;
+    bottom: 3px;
+    right: 10px; 
+}
+
+span{
+    font-size: 12px;
+    color: #bfc1c3;
 }
 
 /* right bottom */
@@ -229,3 +249,4 @@
 .fa-face-smile {
     font-size: 20px;
 }
+

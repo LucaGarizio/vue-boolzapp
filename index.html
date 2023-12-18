@@ -51,7 +51,7 @@
                                 <div class="info">
                                     <h4>{{contact.name}}</h4>
                                     <span>Ultimo messaggio inviato</span>
-                                    <span class="date">12:00</span>
+                                    <span class="date">{{contact.messages[contact.messages.length - 1].date}}</span>
                                 </div>
                             </li>
                         </ul>    
@@ -64,9 +64,9 @@
                 <div class="user-information">
                     <div class="avatar">
                         <img :src="currentUserInfo.avatar" alt="">
-                        <div><h3>{{currentUserInfo.name}}</h3>
-                            <span>Ultimo messaggio inviato </span>
-                            <span>{{currentUserInfo.date}}</span>
+                        <div><h3>{{currentUserInfo.name}} </h3>
+                            <span>{{lastAccess}} </span>
+                            <span>{{currentUserInfo.lastAccess}}</span>
                         </div>
                         
                     </div>
@@ -84,7 +84,8 @@
                             :class="{'message-sent': message.status === 'sent', 'message-received': message.status === 'received'}">
                             <p :class="{'bg-sent': message.status === 'sent', 'bg-received': message.status === 'received'}">
                                 {{message.message}}
-                            </p>  
+                                <span>{{message.date}}</span>
+                            </p>
                         </div>
                     </div>
                 </div>

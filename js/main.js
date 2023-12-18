@@ -4,7 +4,9 @@ createApp({
   data() {
     return {
         newText: "",
+        lastAccess: '',
         searchName: '',
+        currentDate: '',
         lastMessage: '',
         currentIndex: null,
         currentMessages: [],
@@ -184,13 +186,15 @@ createApp({
         this.currentIndex = index;
         // Imposta i messaggi sull'array di messaggi del contatto selezionato
         this.currentMessages = this.contacts[index].messages,
-        this.lastMessage = this.currentMessages[this.currentMessages.length - 1],
+        this.lastMessage = this.currentMessages[this.currentMessages.length - 1].date;
          // Imposta le informazioni dell'utente sul nome e avatar del contatto selezionato
         this.currentUserInfo = {
             date: this.lastMessage.date,
             name: this.contacts[index].name,
-            avatar: this.contacts[index].avatar
+            avatar: this.contacts[index].avatar,
+            lastAccess: this.currentMessages[this.currentMessages.length - 1].date
         };
+        this.lastAccess = "Ultimo Accesso"
       },     
     addText() {
         // check se il campo text non è vuoto
@@ -210,8 +214,7 @@ createApp({
                 status: 'received'
             }); 
         },1000);
-    },
-    
+    }, 
   },
   computed:{
     filteredContacts(){
