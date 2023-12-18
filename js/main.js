@@ -224,6 +224,7 @@ createApp({
             this.contacts[currentIndex].lastAccess = now.format("DD/MM/YYYY HH:mm:ss");
             }, 1000);
         }
+        // svuota il valore dell'input 
         this.newText = "";
     },
     

@@ -13,11 +13,10 @@
 #chat-info {
     border-right: 1px solid #dfdfdf;
     width: 30%;
-    height: 100%;
 }
 
 .my-profile-information {
-    height: 10vh;
+    min-height: 9vh;
     background-color: #eaeaea;
     display: flex;
     justify-content: space-between;
@@ -36,11 +35,11 @@
 }
 
 .notification {
-    height: 10vh;
+    min-height: 10vh;
     background-color: #8edafc;
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    padding: 5px 0;
 }
 
 .notification a {
@@ -51,21 +50,22 @@
 .bell {
     background-color: #fff;
     border-radius: 50%;
-    padding: 15px;
+    padding: 10px;
     margin-right: 10px;
+    margin-left: 9px;
 }
 
 .search-bar {
-    height: 7vh;
-    padding: 10px;
+    min-height: 8vh;
     display: flex;
     align-items: center;
+    padding: 5px;
 }
 
 .icon-input {
     width: 10%;
     border: 1px solid #f6f6f6;
-    padding: 9px;
+    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,14 +76,14 @@
 }
 
 .search-bar input {
-    width: 90%;
-    padding: 8px;
+    width: 89%;
+    padding: 7px;
     border: 1px solid #f6f6f6;
 }
 
 .column-users {
-    height: calc(100% - 27vh);
-    overflow-y: scroll;
+    height: calc(100% - 28vh);
+    overflow-y: auto;
 }
 
 .column-user li:hover {
@@ -91,7 +91,7 @@
 }
 
 .chat-users img {
-    width: 50px;
+    width: 45px;
     margin-right: 10px;
 }
 
@@ -104,12 +104,12 @@
 .date {
     position: absolute;
     right: 10px;
-    top: 5px;
+    top: 3px;
     font-size: 10px;
 }
 
 .active {
-    background-color: #e9ebeb;
+    background-color: #dedede;
 }
 
 .chat-users:hover {
@@ -119,11 +119,10 @@
 /* right-part */
 #chat-display {
     width: 70%;
-    height: 100%;
 }
 
 .user-information {
-    height: 10vh;
+    min-height: 9vh;
     background-color: #eaeaea;
     display: flex;
     justify-content: space-between;
@@ -133,7 +132,7 @@
 
 /* right main */
 .chat-messages {
-    height: calc(100% - 20vh);
+    height: calc(100% - 18vh);
     background-image: url("../img/wallpaperflare.com_wallpaper(7).jpg");
     background-size: cover;
     overflow-y: auto;
@@ -152,7 +151,6 @@
 .message-sent {
     display: flex;
     justify-content: flex-end;
-
 }
 
 .message-received {
@@ -176,12 +174,11 @@
     border-radius: 10px;
     margin: 2% 0 1%;
     position: relative;
-    margin-bottom: 5px;
 }
 
 .chat-messages span {
     position: absolute;
-    bottom: 3px;
+    bottom: 2px;
     right: 10px;
 }
 
@@ -190,13 +187,17 @@ span {
     color: #bfc1c3;
 }
 
+.lastAccess{
+    margin-right: 3px;
+}
+
 /* right bottom */
 .chat-input {
     background-color: #f3eeea;
-    height: 10vh;
+    min-height: 9vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .text {
@@ -231,8 +232,8 @@ span {
 
 /* left icons */
 .fa-bell-slash {
-    /* font-size: 0.9rem; */
     color: #8edafb;
+    font-size: 1rem;
 }
 
 /* bottom icons*/
