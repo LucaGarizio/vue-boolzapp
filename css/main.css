@@ -4,8 +4,29 @@
     box-sizing: border-box;
 }
 
-.main-container {
-    height: 100vh;
+.container {
+    position: relative;
+    /* height: 100vh; */
+}
+
+.green-main-background {
+    height: 20vh;
+    background-color: #009688;
+}
+
+.grey-main-background {
+    height: 80vh;
+    background-color: #d9dbd4;
+}
+
+.chat-container {
+    width: 80%;
+    margin: 0 auto;
+    height: 95%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
 }
 
@@ -60,6 +81,7 @@
     display: flex;
     align-items: center;
     padding: 20px 10px;
+    background-color: #fff;
 }
 
 .icon-input {
@@ -84,6 +106,7 @@
 .column-users {
     height: calc(100% - 190px);
     overflow-y: auto;
+    background-color: #fff;
 }
 
 .column-user li:hover {
@@ -109,6 +132,10 @@
 }
 
 .active {
+    background-color: #dedede;
+}
+
+.chat-users.active:hover {
     background-color: #dedede;
 }
 
@@ -174,6 +201,7 @@
     border-radius: 10px;
     margin: 2% 0 1%;
     position: relative;
+    font-size: 18px;
 }
 
 .chat-messages span {
@@ -183,7 +211,7 @@
 }
 
 span {
-    font-size: 11px;
+    font-size: 12px;
     color: #bfc1c3;
 }
 
@@ -201,7 +229,7 @@ span {
 }
 
 .text {
-    width: 85%;
+    width: 90%;
 }
 
 .text input {
@@ -209,6 +237,7 @@ span {
     padding: 10px;
     border-radius: 5px;
     border: none;
+    font-size: 16px;
 }
 
 /* icons color & margin */
@@ -243,5 +272,3 @@ span {
 .fa-face-smile {
     font-size: 1.2rem;
 }
-
-  
