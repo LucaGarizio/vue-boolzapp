@@ -6,7 +6,20 @@
 
 .container {
     position: relative;
-    /* height: 100vh; */
+}
+
+.chat-container {
+    width: 80%;
+    margin: 0 auto;
+    height: 95%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #dfdfdf;
 }
 
 .green-main-background {
@@ -19,17 +32,11 @@
     background-color: #d9dbd4;
 }
 
-.chat-container {
-    width: 80%;
-    margin: 0 auto;
-    height: 95%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-}
 
+.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
 /* left side */
 #chat-info {
     border-right: 1px solid #dfdfdf;
@@ -81,7 +88,7 @@
     display: flex;
     align-items: center;
     padding: 20px 10px;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .icon-input {
@@ -106,7 +113,7 @@
 .column-users {
     height: calc(100% - 190px);
     overflow-y: auto;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .column-user li:hover {

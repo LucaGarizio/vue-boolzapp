@@ -26,33 +26,31 @@
             <div class="chat-container">
                 <!-- LEFT SIDE APP -->
                 <div id="chat-info">
-                    <div class="|">
-                        <div class="my-profile-information">
-                            <div class="avatar">
-                                <img src="img/avatar1.webp" alt="">
-                                <h4>Luca</h4>
-                            </div>
-                            <div class="icons">
-                                <i class="fa-solid fa-circle-notch"></i>
-                                <i class="fa-solid fa-message"></i>
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
-                            </div>
+                    <div class="my-profile-information">
+                        <div class="avatar" >
+                            <img src="img/avatar1.webp" alt="">
+                            <h4>Luca</h4>
                         </div>
-                        <div class="notification">
-                            <div class="bell">
-                                <i class="fa-solid fa-bell-slash"></i>
-                            </div>
-                            <div class="notification-request">
-                                <h4>Ricevi notifiche di nuovi messaggi</h4>
-                                <a href="#">Attiva notifiche desktop</a>
-                            </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
-                        <div class="search-bar">
-                            <div class="icon-input">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
-                            <input v-model="searchName" type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                    <div class="notification">
+                        <div class="bell">
+                            <i class="fa-solid fa-bell-slash"></i>
                         </div>
+                        <div class="notification-request">
+                            <h4>Ricevi notifiche di nuovi messaggi</h4>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
+                    <div class="search-bar">
+                        <div class="icon-input">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input v-model="searchName" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <div class="column-users">
                         <ul>
@@ -100,7 +98,7 @@
                     
                     <div class="chat-input">
                         <div class="emoji">
-                            <i class="fa-regular fa-face-smile"></i>
+                            <i class="fa-regular fa-face-smile" ></i>
                         </div>
                         <div class="text">
                             <input v-model="newText" @keyup.enter="addText" type="text" placeholder="Scrivi messaggio">
@@ -113,7 +111,6 @@
             </div>
         </div>
     </div>
-
     <script src="js/main.js"></script>
 </body>
 </html>
